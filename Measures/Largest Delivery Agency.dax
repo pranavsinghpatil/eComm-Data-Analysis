@@ -1,0 +1,17 @@
+Largest Delivery Agency = 
+CALCULATE (
+    VALUES ( Orders[Delivery Agency] ),
+    FILTER (
+        ALL ( Orders[Delivery Agency] ),
+        Orders[Delivery Agency] <> BLANK ()
+    ),
+    TOPN (
+        1,
+        SUMMARIZE (
+            Orders,
+            Orders[Delivery Agency],
+            "OrderCount", COUNTROWS(Orders)
+        ),
+        [OrderCount], DESC
+    )
+)

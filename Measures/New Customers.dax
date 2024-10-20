@@ -1,0 +1,1 @@
+New Customers = CALCULATE(COUNTROWS(Orders), DATESINPERIOD('Calendar'[Date], LASTDATE('Calendar'[Date]), -12, MONTH))

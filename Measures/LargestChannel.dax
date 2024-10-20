@@ -1,0 +1,19 @@
+LargestChannel = 
+VAR ChannelCounts =
+    SUMMARIZE(
+        'nd',
+        'nd'[Channel],
+        "ChannelCount", COUNTROWS('nd')
+    )
+VAR MaxCount =
+    MAXX(ChannelCounts, [ChannelCount])
+VAR LargestChannelName =
+    CONCATENATEX(
+        FILTER(ChannelCounts, [ChannelCount] = MaxCount),
+        'nd'[Channel],
+        ", "
+    )
+VAR TotalCount = COUNTROWS('nd')
+VAR DivPerc =FORMAT(DIVIDE(MaxCount, TotalCount, 0) * 100 , "0.0")
+RETURN
+    LargestChannelName & " - " & DivPerc & "%"

@@ -1,0 +1,30 @@
+MaxOrderChannel = 
+VAR TotalOrders =
+    CALCULATE (
+        COUNTROWS ( 'nd' ),
+        ALL ( 'nd'[Channel] )
+    )
+VAR MaxOrderPercentage =
+    MAXX (
+        SUMMARIZE (
+            'nd',
+            'nd'[Channel],
+            "OrderCount", [OrderCount]
+        ),
+        [OrderCount] / TotalOrders
+    )
+RETURN
+    CONCATENATEX (
+        FILTER (
+            VALUES ( 'nd'[Channel] ),
+            [OrderCount] / TotalOrders = MaxOrderPercentage
+        ),
+        SWITCH (
+            TRUE (),
+            'nd'[Channel] = "android-APP", "AndroidApp",
+            'nd'[Channel] = "ios-APP", "iOSApp",
+            'nd'[Channel] = "Website", "Website",
+            'nd'[Channel]
+        ) 
+    )
+

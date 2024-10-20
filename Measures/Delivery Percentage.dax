@@ -1,0 +1,8 @@
+Delivery Percentage = 
+DIVIDE(
+COUNTROWS('Orders'),
+CALCULATE(
+COUNTROWS('Orders'),
+ALLEXCEPT('Orders', 'Orders'[Delivery Agency])
+)
+)

@@ -1,0 +1,1 @@
+F_Operating Expenses = SUM('Orders'[Expense])
