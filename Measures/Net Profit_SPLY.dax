@@ -1,0 +1,8 @@
+Net Profit_SPLY = 
+CALCULATE(
+    SUM(Orders[Sales]) - SUM(Orders[Expense]),
+    SAMEPERIODLASTYEAR('Calendar'[Date])
+) - CALCULATE(
+    SUM(Orders[Discount Amount]),
+    SAMEPERIODLASTYEAR('Calendar'[Date])
+)

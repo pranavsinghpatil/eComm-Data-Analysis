@@ -1,0 +1,17 @@
+MaxAvgOrderWeekday = 
+VAR MaxAvg =
+    MAXX(
+        SUMMARIZE('nd', 'nd'[Weekday], "AvgOrderValue", [M_Average Order Value (AOV)]),
+        [AvgOrderValue]
+    )
+VAR MaxAvgWeekday =
+    MAXX(
+        FILTER(
+            SUMMARIZE('nd', 'nd'[Weekday], "AvgOrderValue", [M_Average Order Value (AOV)]),
+            [AvgOrderValue] = MaxAvg
+        ),
+        'nd'[Weekday]
+    )
+RETURN
+    MaxAvgWeekday & " :- " & FORMAT(MaxAvg, "0.0")
+

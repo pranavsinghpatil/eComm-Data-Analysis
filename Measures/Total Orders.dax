@@ -1,0 +1,1 @@
+Total Orders = COUNTROWS(Orders)

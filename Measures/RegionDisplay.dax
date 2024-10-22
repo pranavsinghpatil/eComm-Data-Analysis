@@ -1,0 +1,6 @@
+RegionDisplay = 
+IF (
+    ISFILTERED ( 'LOCATION'[Region] ),
+    VALUES ( 'LOCATION'[Region] ),
+    "World"
+)

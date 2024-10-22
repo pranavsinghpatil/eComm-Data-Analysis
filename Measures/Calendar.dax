@@ -1,0 +1,12 @@
+Calendar = 
+ADDCOLUMNS (
+    CALENDAR ( DATE(2018,1,1), DATE(2021,12,31) ),
+    "Year", YEAR ( [Date] ),
+    "Quarter", "Q" & FORMAT ( [Date], "Q" ),
+    "Month number", MONTH ( [Date] ),
+    "Month", FORMAT ( [Date], "MMMM" ),
+    "Day", DAY ( [Date] ),
+    "Weekday number", WEEKDAY ( [Date] ),
+    "Weekday", FORMAT ( [Date], "dddd" ),
+    "Week Number", WEEKNUM ( [Date] )
+)

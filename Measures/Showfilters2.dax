@@ -1,0 +1,28 @@
+Showfilters2 = //region
+IF(
+ISFILTERED (LOCATION[Region]),
+VAR items = VALUES (LOCATION[Region])
+VAR itemscombined = CONCATENATEX(items, LOCATION[Region],UNICHAR(10))
+RETURN itemscombined & UNICHAR (10)
+)&                                
+//country
+IF (
+ISFILTERED ( LOCATION[Country]),
+VAR items = VALUES ( LOCATION[Country] )
+VAR itemscombined = CONCATENATEX (items, LOCATION[Country],UNICHAR(10))
+RETURN itemscombined & UNICHAR (10)
+)&
+//state
+IF (
+ISFILTERED ( LOCATION[State]),
+VAR items = VALUES (LOCATION[State] )
+VAR itemscombined = CONCATENATEX (items, LOCATION[State],UNICHAR(10))
+RETURN itemscombined & UNICHAR(10)
+) &
+//city
+IF (
+ISFILTERED ( LOCATION[City]),
+VAR items = VALUES (LOCATION[City] )
+VAR itemscombined = CONCATENATEX (items, LOCATION[City],UNICHAR(10))
+RETURN itemscombined & UNICHAR(10)
+)

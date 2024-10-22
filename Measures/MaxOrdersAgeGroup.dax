@@ -1,0 +1,44 @@
+MaxOrdersAgeGroup = 
+VAR AgeGroups =
+    { "<18", "18-30", "31-40", "41-50", "51+" }  // Define the age groups/ranges
+VAR MaxOrdersByGroup =
+    SUMMARIZE(
+        'Orders',
+        'Orders'[Age],
+        "Orders", CALCULATE(COUNTROWS(Orders))
+    )
+VAR MaxOrders =
+    MAXX(
+        MaxOrdersByGroup,
+        [Orders]
+    )
+VAR MaxOrdersGroup =
+    CALCULATE(
+        MAXX(
+            FILTER(
+                MaxOrdersByGroup,
+                [Orders] = MaxOrders
+            ),
+            'Orders'[Age]
+        )
+    )
+RETURN
+    MAXX(
+        FILTER(
+            ADDCOLUMNS(
+                VALUES('Orders'[Age]),
+                "AgeGroup", 
+                SWITCH(
+                    TRUE(),
+                    'Orders'[Age] < 18, "<18",
+                    'Orders'[Age] >= 18 && 'Orders'[Age] <= 30, "18-30",
+                    'Orders'[Age] >= 31 && 'Orders'[Age] <= 40, "31-40",
+                    'Orders'[Age] >= 41 && 'Orders'[Age] <= 50, "41-50",
+                    'Orders'[Age] > 50, "51+",
+                    BLANK()
+                )
+            ),
+            [Age] = MaxOrdersGroup
+        ),
+        [AgeGroup]
+    )

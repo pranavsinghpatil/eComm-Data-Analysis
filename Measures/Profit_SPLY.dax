@@ -1,0 +1,1 @@
+Profit_SPLY = CALCULATE(SUM(Orders[Profit]),SAMEPERIODLASTYEAR('Calendar'[Date]))

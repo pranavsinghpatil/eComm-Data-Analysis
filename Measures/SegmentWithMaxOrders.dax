@@ -1,0 +1,17 @@
+SegmentWithMaxOrders = 
+CALCULATE (
+    VALUES ( Orders[Segment] ),
+    FILTER (
+        ALL ( Orders[Segment] ),
+        Orders[Segment] <> BLANK ()
+    ),
+    TOPN (
+        1,
+        SUMMARIZE (
+            Orders,
+            Orders[Segment],
+            "OrderCount", COUNTROWS(Orders)
+        ),
+        [OrderCount], DESC
+    )
+)

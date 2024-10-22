@@ -1,0 +1,1 @@
+P_Total Profit = SUMX(Orders, IF(Orders[Sales] - Orders[Expense] >= 0, Orders[Sales] - Orders[Expense], 0))

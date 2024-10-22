@@ -1,0 +1,1 @@
+COGS(Cost of Goods Sold) = [S_Total Sales] - ('Profits Measures'[P_Profit Margin] * 'Sales Measures'[S_Total Sales])

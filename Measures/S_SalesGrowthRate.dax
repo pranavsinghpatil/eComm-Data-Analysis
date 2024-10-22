@@ -1,0 +1,1 @@
+S_SalesGrowthRate = ([S_Total Sales] - [S_Previous Period Total Sales]) / [S_Previous Period Total Sales]

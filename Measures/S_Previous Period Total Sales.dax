@@ -1,0 +1,1 @@
+S_Previous Period Total Sales = CALCULATE(SUM('Orders'[Sales]), DATEADD('Calendar'[Date], -1, MONTH))

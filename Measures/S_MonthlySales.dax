@@ -1,0 +1,1 @@
+S_MonthlySales = SUMX('Orders', 'Orders'[Sales])

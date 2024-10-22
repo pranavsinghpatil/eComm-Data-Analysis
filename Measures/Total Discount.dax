@@ -1,0 +1,1 @@
+Total Discount = SUM(Orders[Discount Amount])

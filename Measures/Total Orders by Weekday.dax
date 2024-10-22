@@ -1,0 +1,5 @@
+Total Orders by Weekday = 
+CALCULATE(
+COUNTROWS('nd'),
+ALLEXCEPT('nd', 'nd'[WeekDay])
+)

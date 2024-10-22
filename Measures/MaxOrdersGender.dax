@@ -1,0 +1,14 @@
+MaxOrdersGender = 
+VAR MaxOrders =
+    MAXX(
+        VALUES('Orders'[Gender]),
+        CALCULATE(COUNTROWS('Orders'))
+    )
+RETURN
+    MAXX(
+        FILTER(
+            VALUES('Orders'[Gender]),
+            CALCULATE(COUNTROWS('Orders')) = MaxOrders
+        ),
+        'Orders'[Gender]
+    )

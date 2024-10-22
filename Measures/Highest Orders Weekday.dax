@@ -1,0 +1,15 @@
+Highest Orders Weekday = 
+VAR MaxOrders =
+MAXX(
+SUMMARIZE('nd', 'nd'[WeekDay], "TotalOrders", [OrderCount]),
+[TotalOrders]
+)
+RETURN
+CONCATENATEX(
+FILTER(
+SUMMARIZE('nd', 'nd'[WeekDay], "TotalOrders", [OrderCount]),
+[TotalOrders] = MaxOrders
+),
+FORMAT('nd'[WeekDay], "dddd"),
+", "
+)

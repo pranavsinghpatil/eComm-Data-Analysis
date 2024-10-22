@@ -1,0 +1,17 @@
+MostOftenUsedPaymentMethod = 
+CALCULATE (
+    VALUES ( 'Orders'[Payment Method] ),
+    FILTER (
+        ALL ( 'Orders'[Payment Method] ),
+        'Orders'[Payment Method] <> BLANK ()
+    ),
+    TOPN (
+        1,
+        SUMMARIZE (
+            'Orders',
+            'Orders'[Payment Method],
+            "OrderCount", COUNTROWS('Orders')
+        ),
+        [OrderCount], DESC
+    )
+)

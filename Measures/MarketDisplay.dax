@@ -1,0 +1,6 @@
+MarketDisplay = 
+IF (
+    ISFILTERED ( 'LOCATION'[Region] ),
+    VALUES ( 'LOCATION'[Market] ),
+    " "
+)

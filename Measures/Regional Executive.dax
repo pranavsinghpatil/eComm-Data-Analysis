@@ -1,0 +1,7 @@
+Regional Executive = 
+IF (
+    ISFILTERED ( 'LOCATION'[Region] ),
+    VALUES ( 'People'[Person] ),
+    "{Apply Filters}"
+)
+

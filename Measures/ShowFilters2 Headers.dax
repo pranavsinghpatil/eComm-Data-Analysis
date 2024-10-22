@@ -1,0 +1,21 @@
+ShowFilters2 Headers = 
+//region
+IF(
+ISFILTERED( LOCATION[Region] ),
+"Region: "&REPT (UNICHAR(10), COUNTROWS (VALUES (LOCATION[Region])))
+) &
+//country
+IF(
+ISFILTERED( LOCATION[Country] ),
+"Country: "&REPT (UNICHAR(10), COUNTROWS (VALUES (LOCATION[Country])))
+) &
+//state
+IF(
+ISFILTERED( LOCATION[State]),
+"State: "&REPT (UNICHAR(10), COUNTROWS (VALUES (LOCATION[State])))
+) &
+//city
+IF(
+ISFILTERED( LOCATION[City]),
+"City: "&REPT(UNICHAR(10), COUNTROWS (VALUES (LOCATION[City])))
+)

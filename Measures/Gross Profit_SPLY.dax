@@ -1,0 +1,1 @@
+Gross Profit_SPLY = CALCULATE(SUM(Orders[Sales]),SAMEPERIODLASTYEAR('Calendar'[Date]))-CALCULATE(SUM(Orders[Expense]),SAMEPERIODLASTYEAR('Calendar'[Date]))

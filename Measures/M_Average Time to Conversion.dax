@@ -1,0 +1,1 @@
+M_Average Time to Conversion (in Days) = AVERAGEX(Orders, DATEDIFF(Orders[Order Date], Orders[Ship Date], DAY))

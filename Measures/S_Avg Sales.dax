@@ -1,0 +1,1 @@
+S_Avg Sales = AVERAGE('Orders'[Sales])
