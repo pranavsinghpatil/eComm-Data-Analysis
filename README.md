@@ -9,10 +9,6 @@ Explore key performance indicators (KPIs) through the following dashboards:
 - **Sales & Marketing Dashboards**
 - **Regional Analysis Dashboard**
 
----
-
-## 🎥 Demo Video
-📽️ *Check out a video walkthrough of the dashboard in action* [here](./DEMO/ScreenRecording 2024-10-21 0.mp4).
 
 ---
 
